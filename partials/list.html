@@ -1,0 +1,39 @@
+<section>
+<div class="search">
+<h1>Hospital Directory</h1>
+<label>Search: </label>
+
+<input type="text" name="text" ng-model="key" placeholder="Search for hospitals" autofocus>
+<button ng-click="ListController()" class="btn" >Search</button>
+<label class="formgroup">by:
+<select ng-model="mandiOrder" >
+    <option value="" disabled selected>Select your option</option>
+    <option value="district" selected>District</option>
+    <option value="State" >State</option>
+    <option value="PinCode">pincode</option>
+</select>
+</label>
+<label class="formgroup">
+      <input type="radio" ng-model="direction" name="direction" value="reverse" >
+      ascending
+       
+     </label>
+    <label class="formgroup">
+      <input type="radio" ng-model="direction" name="direction" checked >
+      descending
+    </label>
+</div>
+  <ul class="artistlist"  >
+    
+    <li class="artist cf" ng-repeat="item in mandi.records |  orderBy: artistOrder:direction">
+    <a href="#/details/{{mandi.records.indexOf(item)}}">
+      <div class="info">
+        
+        <h2>{{item.hospitalname}}</h2>
+        <h3> {{item['address First Line']}} <br>{{ item.district}} District {{ item.state}}</h3>
+        <h4>Contact: {{item.telephone}} </h4>
+      </div>
+</a>
+    </li>
+  </ul>
+</section>
