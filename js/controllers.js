@@ -2,16 +2,15 @@ var mandiControllers = angular.module('mandiControllers', []);
 var url = null;
 mandiControllers.controller('ListController' , ['$scope', '$http',function($scope, $http) {
  
-
-$scope.url = 'https://data.gov.in/api/datastore/resource.json?resource_id=7d208ae4-5d65-47ec-8cb8-2a7a7ac89f8c&api-key=84774f4bb9dc59c6e753bfea7e3e2e5e';
-url = 'https://data.gov.in/api/datastore/resource.json?resource_id=7d208ae4-5d65-47ec-8cb8-2a7a7ac89f8c&api-key=84774f4bb9dc59c6e753bfea7e3e2e5e';
+$scope.url = 'https://api.data.gov.in/resource/98fa254e-c5f8-4910-a19b-4828939b477d?api-key=579b464db66ec23bdd000001cdd3946e44ce4aad7209ff7b23ac571b&format=json&offset=0&limit=10';
+url = 'https://api.data.gov.in/resource/98fa254e-c5f8-4910-a19b-4828939b477d?api-key=579b464db66ec23bdd000001cdd3946e44ce4aad7209ff7b23ac571b&format=json&offset=0&limit=10';
 $http.get($scope.url).success(function(data) {
 $scope.mandi = data ;
 })
 $scope.ListController = function(){
 
-$scope.url = 'https://data.gov.in/api/datastore/resource.json?resource_id=7d208ae4-5d65-47ec-8cb8-2a7a7ac89f8c&api-key=84774f4bb9dc59c6e753bfea7e3e2e5e&filters['+$scope.mandiOrder+']='+$scope.key;
-url =  'https://data.gov.in/api/datastore/resource.json?resource_id=7d208ae4-5d65-47ec-8cb8-2a7a7ac89f8c&api-key=84774f4bb9dc59c6e753bfea7e3e2e5e&filters['+$scope.mandiOrder+']='+$scope.key;
+$scope.url = 'https://api.data.gov.in/resource/98fa254e-c5f8-4910-a19b-4828939b477d?api-key=579b464db66ec23bdd000001cdd3946e44ce4aad7209ff7b23ac571b&format=json&offset=0&limit=10&filters['+$scope.mandiOrder+']='+$scope.key;
+url =  'https://api.data.gov.in/resource/98fa254e-c5f8-4910-a19b-4828939b477d?api-key=579b464db66ec23bdd000001cdd3946e44ce4aad7209ff7b23ac571b&format=json&offset=0&limit=10&filters['+$scope.mandiOrder+']='+$scope.key;
 $http.get($scope.url).success(function(data) {
 $scope.mandi = data ;
 })
